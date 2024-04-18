@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
