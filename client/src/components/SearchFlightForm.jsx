@@ -8,6 +8,7 @@ import PassengerDetails from "../helper/SearchFlightForm/PassangerDetails";
 import DateTimeInput from "../helper/SearchFlightForm/DateTimeInput";
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import BookingTypeSelect from "../helper/SearchFlightForm/SelectOption";
+import { useNavigate } from "react-router-dom";
 
 const bookingClassOptions = [
   "Regular fair",
@@ -25,6 +26,8 @@ const SearchFlightForm = () => {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const tomorrowISOString = tomorrow.toISOString().split("T")[0];
+
+  const navigate = useNavigate();
 
   /*.......................... React form hook logic............*/
   const {
@@ -54,7 +57,7 @@ const SearchFlightForm = () => {
   const watchBookingType = watch("booking_type");
   console.log("watchBooking type", watchBookingType);
 
-  const roundTrip =watchBookingType === "Round" ? "roundtrip" :"oneway";
+  const roundTrip = watchBookingType === "Round" ? "roundtrip" : "oneway";
 
   const sum = watchPassengers.reduce((acc, current) => {
     return (acc = acc + current.count);
@@ -79,6 +82,7 @@ const SearchFlightForm = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    navigate("/flight-search");
   };
 
   return (
