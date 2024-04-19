@@ -49,7 +49,7 @@ const TravelerDetail = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white shadow-md rounded-md p-6">
+    <div className="max-w-4xl mx-auto mt-10 bg-white shadow-md rounded-md p-6">
       <h2 className="text-lg font-semibold mb-4">Traveler Details</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {Array.from({ length: count }).map((_, index) => (
@@ -63,7 +63,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="text"
-                  className="border border-gray-400 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                   placeholder="First Name"
                 />
               )}
@@ -75,7 +75,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="text"
-                  className="border border-gray-400 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                   placeholder="Last Name"
                 />
               )}
@@ -86,7 +86,7 @@ const TravelerDetail = () => {
               render={({ field }) => (
                 <select
                   {...field}
-                  className="border border-gray-400  rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
+                  className="border border-gray-300  rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
                   <option value="">Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -101,7 +101,7 @@ const TravelerDetail = () => {
                 <select
                   {...field}
                   placeholder="Select Country Code"
-                  className="border border-gray-400  rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
+                  className="border border-gray-300  rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
                   {CountryCode.map((country) => (
                     <option key={country.name} value={country.dial_code}>
                       {country.name}
@@ -119,7 +119,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="text"
-                  className="border border-gray-400 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                   placeholder="Mobile No."
                 />
               )}
@@ -131,7 +131,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="email"
-                  className="border border-gray-400 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                   placeholder="Email"
                 />
               )}
@@ -151,7 +151,7 @@ const TravelerDetail = () => {
         )} */}
         <button
           type="submit"
-          className="mt-4 bg-green-500 text-white py-2 px-4 rounded-md focus:outline-none hover:bg-green-600">
+          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md focus:outline-none hover:bg-green-600">
           Continue
         </button>
       </form>

@@ -11,9 +11,9 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center rounded-lg mt-10 h-fit bg-white">
+    <div className="flex w-[35%] flex-wrap text-sm tracking-wide justify-center rounded-sm mt-10 h-fit  bg-white">
       {/* Price Range Slider */}
-      <div className="w-full md:w-1/3 px-4 mb-4">
+      <div className="w-full md:w-1/3 p-5">
         <label
           className="block text-gray-700 font-bold mb-2"
           htmlFor="priceRange">
@@ -28,8 +28,7 @@ const Sidebar = () => {
           max={maxPrice}
           value={currentPrice}
           onChange={handlePriceChange}
-          className="w-full"
-        />
+ className="w-full bg-blue-200 rounded-full appearance-none h-3 focus:outline-none"        />
         </Tooltip>
         <div className="flex justify-between mt-2">
           <span className="text-sm text-gray-600">Min: ${minPrice}</span>
@@ -40,7 +39,7 @@ const Sidebar = () => {
       {/* Stop Type Checkbox */}
       <div className="w-full md:w-1/3 px-4 mb-4">
         <label className="block text-gray-700 font-bold mb-2">Stop Type</label>
-        <div>
+        <div className="">
           <label className="inline-flex items-center">
             <input type="checkbox" className="form-checkbox text-blue-500" />
             <span className="ml-2">Non Stop</span>

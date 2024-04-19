@@ -13,14 +13,18 @@ const FlightBookingCard = () => {
   };
 
   return (
-    <section className="bg-white h-fit rounded-lg w-full mt-10">
-      <div className="p-5 flex justify-evenly shadow-md   gap-5">
+    <section className="bg-white  h-fit rounded-sm w-full mt-10">
+      <div className="p-5 border  flex justify-evenly gap-5">
         <div>
           <p className="text-lg font-bold">Indigo</p>
           <p className="block text-[12px] font-medium text-gray-500">123456</p>
         </div>
         <FlightAirportTime />
+        <div className=" flex flex-col">
         <p>06h 05m</p>
+        <div className=" w-full h-0.5 bg-blue-500 rounded"></div>
+        </div>
+        
         <FlightAirportTime />
         <div>
           <p className="text-lg font-bold">₹ 5,729</p>
@@ -30,7 +34,7 @@ const FlightBookingCard = () => {
         </div>
         <div className="flex gap-3 flex-col">
           <button
-            className="text-lg bg-blue-200 border rounded-full px-2 text-blue-500 border-blue-500 "
+            className="text-md bg-blue-200 border rounded-full px-2 text-blue-500 border-blue-500 "
             onClick={onClickHandler}>
             Book Now
           </button>
@@ -43,7 +47,7 @@ const FlightBookingCard = () => {
         </div>
       </div>
       {viewFlightDetails ? (
-        <div className=" p-5">
+        <div className=" bg-gray-50 rounded-sm transition-all duration-500   p-5">
           {" "}
           <TabComponent />
         </div>

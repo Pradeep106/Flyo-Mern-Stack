@@ -13,31 +13,31 @@ const TabComponent = () => {
 
   return (
     <div className="w-full">
-      <div className="flex border-b border-gray-200">
+      <div className="flex text-sm tracking-wide ">
         <button
-          className={`px-4 py-2 ${
-            activeTab === 1 ? "bg-blue-100" : "bg-white"
+          className={`px-4 py-2 border-b  uppercase border-l border-t shadow-md  ${
+            activeTab === 1 ? "bg-blue-500  transition-all duration-75 text-white" : "bg-white"
           }`}
           onClick={() => handleTabChange(1)}>
           Flight Details
         </button>
         <button
-          className={`px-4 py-2 ${
-            activeTab === 2 ? "bg-gray-100" : "bg-white"
+          className={`px-4 py-2 border-t border-b uppercase shadow-md ${
+            activeTab === 2 ? "bg-blue-500 rounded-sm transition-all duration-75 text-white" : "bg-white"
           }`}
           onClick={() => handleTabChange(2)}>
           Fair summary
         </button>
         <button
-          className={`px-4 py-2 ${
-            activeTab === 3 ? "bg-gray-100" : "bg-white"
+          className={`px-4 py-2 border-t uppercase border-b shadow-md ${
+            activeTab === 3 ? "bg-blue-500  transition-all duration-75 text-white" : "bg-white"
           }`}
           onClick={() => handleTabChange(3)}>
           Cancelation
         </button>
         <button
-          className={`px-4 py-2 ${
-            activeTab === 4 ? "bg-gray-100" : "bg-white"
+          className={`px-4 py-2 border-b uppercase border-r border-t shadow-md  ${
+            activeTab === 4 ? "bg-blue-500  transition-all duration-75 text-white " : "bg-white"
           }`}
           onClick={() => handleTabChange(4)}>
           Date Change

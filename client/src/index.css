@@ -9,3 +9,7 @@
     align-items: center;
   }
 }
+.gradient-custom {
+  @apply bg-gradient-to-b from-[#00082A] via-[#002759] to-[#5D8EB5];
+  background-position: 0% 30% 70%;
+}

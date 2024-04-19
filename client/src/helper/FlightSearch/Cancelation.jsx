@@ -2,17 +2,17 @@ import React from "react";
 
 const Cancelation = () => {
   return (
-    <div className="border p-5">
-      <table className="border border-gray-300">
-        <thead className="border">
-          <tr className="border ">
-            <th className="border text-sm p-3 border-gray-300">
+    <div className="border border-gray-300 rounded-sm  p-5">
+      <table className="border  ">
+        <thead className="border ">
+          <tr className="border  ">
+            <th className="border flex flex-col  text-sm p-3">
               <span>Time frame</span>
-              <span>(From Scheduled flight departure)</span>
+              <span className="font-normal">(From Scheduled flight departure)</span>
             </th>
             <th className="text-sm p-3">
-              <span className="">Airline Fee + MMT Fee + Fare difference</span>
-              <span className="">(Per passenger)</span>
+              <span className="">Airline Fee + MMT Fee </span>
+              <span className="font-normal">(Per passenger)</span>
             </th>
           </tr>
         </thead>

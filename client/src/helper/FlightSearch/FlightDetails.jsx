@@ -3,8 +3,8 @@ import TravelerDetail from "../../components/TravellerDetails";
 
 const FlightDetails = () => {
   return (
-    <section className="border p-2">
-      <div className="border-b pb-2">
+    <section className="border border-gray-300 p-3 text-sm  rounded-sm">
+      <div className="border-b border-gray-300 pb-2">
         <p className="font-semibold text-sm">New Delhi to Mumbai ,4 June</p>
       </div>
       <p className="mt-2">
@@ -19,7 +19,11 @@ const FlightDetails = () => {
           </p>
           <p className=" text-[13px] ">New Delhi,India</p>
         </div>
+        <div>
         <p className=" text-[13px] ">06h 05m</p>
+        <div className="w-full h-0.5 bg-blue-500"></div>
+        </div>
+       
         <div>
           <p className="text-lg font-bold">02:23</p>
           <p className="block text-[12px] font-medium text-gray-700">
