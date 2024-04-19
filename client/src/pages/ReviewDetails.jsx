@@ -1,20 +1,47 @@
 import React from "react";
 import FlightAirportTime from "../helper/FlightSearch/FlightAirportTime";
+import { BsArrowRight } from "react-icons/bs";
+import { MdOutlineFlight } from "react-icons/md";
 
 const ReviewDetails = () => {
   return (
-    <div className="bg-white">
-      <p>New Delh Mumbai</p>
-      <p>Fiday, Apr 19</p>
+    
+    <div className="bg-white border shadow-lg rounded-md  p-5 mt-10 w-[70%] flex-col gap-4">
+      <div className=" font-bold text-lg flex items-center  gap-5">
+        <p className="w-auto">New Delhi</p>
+         <div className=" bg-white text-blue-500"><BsArrowRight /></div>
+        <p className=" w-auto">Mumbai</p>
+      </div>
+      <div className="flex gap-5">
+      <p className=" bg-blue-500 rounded-md text-white px-1">Fiday, Apr 19</p>
       <p>Non stop 2h 15m</p>
-      <p>Air India Ai856</p>
+      </div>
+      <div className="flex justify-between pt-4 pb-4">
+      <p className="font-semibold">Air India Ai856</p>
       <p>Economy</p>
-      <FlightAirportTime />
-      <p>Indira Gandhi International Airport, Terminal T3</p>
-      <FlightAirportTime />
-      <p>Indira Gandhi International Airport, Terminal T3</p>
+      </div>
+      <div className=" bg-gray-100 rounded-md">
+       <div className="flex items-center gap-10  p-5 ">
+        <div  className="flex flex-col gap-10">
+        <FlightAirportTime />
+        <FlightAirportTime />
+        </div>
+        <div className="" >
+        <MdOutlineFlight />
+        </div>
+        <div className="flex flex-col gap-5">
+        <p>Indira Gandhi International Airport, Terminal T3</p>
+         <p>2h 30min</p>
+        <p>Indira Gandhi International Airport, Terminal T3</p>
+        </div>
+       
+       </div>
+       <div className="flex justify-between border-t p-4 ">
       <p>Cabin Baggage:8 Kgs / Adult</p>
       <p>Check-In Baggage:25 Kgs / Adult</p>
+      </div>
+     </div>
+     
       <div>
         <h1>Cancellation Refund Policy</h1>
         <p>DEL-BOM</p>
@@ -77,6 +104,7 @@ const ReviewDetails = () => {
         </div>
       </section> */}
     </div>
+    
   );
 };
 
