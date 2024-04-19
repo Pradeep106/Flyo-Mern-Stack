@@ -1,4 +1,5 @@
 import React from "react";
+import TravelerDetail from "../../components/TravellerDetails";
 
 const FlightDetails = () => {
   return (
@@ -6,7 +7,10 @@ const FlightDetails = () => {
       <div className="border-b pb-2">
         <p className="font-semibold text-sm">New Delhi to Mumbai ,4 June</p>
       </div>
-      <p className="mt-2"> <span className="font-bold">Airline</span> 123455</p>
+      <p className="mt-2">
+        {" "}
+        <span className="font-bold">Airline</span> 123455
+      </p>
       <div className="flex justify-between my-5">
         <div>
           <p className="text-lg font-bold">02:23</p>

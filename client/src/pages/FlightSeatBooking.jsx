@@ -17,7 +17,7 @@ const FlightSeatBooking = ({ rows = ['A', 'B', 'C', 'D'], seatsPerRow = 6 }) => 
     return (
       <div
         key={seat}
-        className={`seat ${isSelected ? 'bg-blue-500' : 'bg-blue-200'} hover:bg-blue-300 cursor-pointer`}
+        className={`seat ${isSelected ? 'bg-blue-500' : 'bg-blue-200'} hover:bg-blue-300 cursor-pointer p-5 rounded-sm`}
         onClick={() => handleSeatClick(seat)}
       >
         {seat}
@@ -31,7 +31,7 @@ const FlightSeatBooking = ({ rows = ['A', 'B', 'C', 'D'], seatsPerRow = 6 }) => 
       seats.push(renderSeat(`${row}${i}`));
     }
     return (
-      <div key={row} className="flex justify-center space-x-2">
+      <div key={row} className="flex justify-center  space-x-2">
         {seats}
       </div>
     );
@@ -41,7 +41,7 @@ const FlightSeatBooking = ({ rows = ['A', 'B', 'C', 'D'], seatsPerRow = 6 }) => 
     <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
       <h2 className="text-xl font-bold mb-4">Flight Seat Booking</h2>
       {rows.map(row => (
-        <div key={row}>
+        <div key={row} className='border'>
           {renderRow(row)}
         </div>
       ))}
@@ -49,7 +49,8 @@ const FlightSeatBooking = ({ rows = ['A', 'B', 'C', 'D'], seatsPerRow = 6 }) => 
         <h3 className="text-lg font-bold mb-2">Selected Seats</h3>
         <ul className="list-disc pl-6">
           {selectedSeats.map(seat => (
-            <li key={seat}>{seat}</li>
+            <li key={seat} 
+            className='border'>{seat}</li>
           ))}
         </ul>
       </div>

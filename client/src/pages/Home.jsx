@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <main className="">
       <SearchFlightForm />
-      <FlightSeatBooking />
     </main>
   );
 };

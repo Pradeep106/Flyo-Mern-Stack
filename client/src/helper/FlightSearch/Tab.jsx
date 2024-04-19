@@ -26,7 +26,7 @@ const TabComponent = () => {
             activeTab === 2 ? "bg-gray-100" : "bg-white"
           }`}
           onClick={() => handleTabChange(2)}>
-            Fair summary
+          Fair summary
         </button>
         <button
           className={`px-4 py-2 ${
@@ -61,7 +61,7 @@ const TabComponent = () => {
         )}
         {activeTab === 4 && (
           <div>
-            <p>Content for Tab 4</p>
+            <Cancelation />
           </div>
         )}
       </div>
