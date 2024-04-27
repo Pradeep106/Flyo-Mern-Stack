@@ -31,14 +31,14 @@ const FlightSeatBooking = ({ rows = ['A', 'B', 'C', 'D'], seatsPerRow = 10 }) =>
       seats.push(renderSeat(`${row}${i}`));
     }
     return (
-      <div key={row} className="flex bg-gray-100 p-">
+      <div key={row} className="flex bg-[#05123c] p-">
         {seats}
       </div>
     );
   };
 
   return (
-    <div className=" w-full p-4 mt-10 bg-white rounded-md shadow-md border shadow-gray-200">
+    <div className=" w-full p-4 mt-10 bg-[#000B2E] border border-gray-800">
       <h2 className="text-lg font-bold mb-4">Flight Seat Booking</h2>
       {rows.map(row => (
         <div key={row} className=''>
@@ -50,7 +50,7 @@ const FlightSeatBooking = ({ rows = ['A', 'B', 'C', 'D'], seatsPerRow = 10 }) =>
         <ul className="list-disc pl-6">
           {selectedSeats.map(seat => (
             <li key={seat} 
-            className='border'>{seat}</li>
+            className='border border-gray-800'>{seat}</li>
           ))}
         </ul>
       </div>

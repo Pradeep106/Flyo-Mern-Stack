@@ -10,7 +10,7 @@ router.get("/flights", flightController.getAllFlights);
 router.get("/flights/:id", flightController.getFlightById);
 
 // Route to create a new flight (requires authentication)
-router.post("/flights", auth, flightController.createFlight);
+router.post("/flights", flightController.createFlight);
 
 // Route to update an existing flight by ID (requires authentication)
 router.put(

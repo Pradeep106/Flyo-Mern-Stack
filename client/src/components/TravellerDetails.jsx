@@ -18,7 +18,7 @@ const schema = yup.object().shape({
   ),
 });
 
-const TravelerDetail = () => {
+const TravelerDetail = ({ setFlightData, flightData, setNavigatePayment }) => {
   const [count, setCount] = useState(1);
   const {
     control,
@@ -39,7 +39,17 @@ const TravelerDetail = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const passengersData = data.travelers.map((traveler) => ({
+      firstName: traveler.firstName,
+      lastName: traveler.lastName,
+      gender: traveler.gender,
+      countryCode: traveler.countryCode,
+      mobileNo: traveler.mobileNo,
+      email: traveler.email,
+    }));
+
+    setFlightData({ ...flightData, passengers: passengersData });
+    setNavigatePayment(true);
   };
 
   const handleAddUser = () => {
@@ -49,7 +59,7 @@ const TravelerDetail = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 bg-white shadow-md rounded-md p-6">
+    <div className="max-w-4xl mx-auto mt-10 border border-gray-800 pb5 bg-[#000B2E] shadow-md rounded-md p-6">
       <h2 className="text-lg font-semibold mb-4">Traveler Details</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {Array.from({ length: count }).map((_, index) => (
@@ -63,7 +73,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="text"
-                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="mt-1 block text-gray-500 w-full bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e]   border p-2 rounded-md  focus:border-blue-500 focus:ring focus:ring-blue-200"
                   placeholder="First Name"
                 />
               )}
@@ -75,7 +85,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="text"
-                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="mt-1 block text-gray-500 w-full bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e]   border p-2 rounded-md  focus:border-blue-500 focus:ring focus:ring-blue-200"
                   placeholder="Last Name"
                 />
               )}
@@ -86,7 +96,7 @@ const TravelerDetail = () => {
               render={({ field }) => (
                 <select
                   {...field}
-                  className="border border-gray-300  rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
+                  className="border  bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e] rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
                   <option value="">Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -101,7 +111,7 @@ const TravelerDetail = () => {
                 <select
                   {...field}
                   placeholder="Select Country Code"
-                  className="border border-gray-300  rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
+                  className="border  bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e] rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
                   {CountryCode.map((country) => (
                     <option key={country.name} value={country.dial_code}>
                       {country.name}
@@ -119,7 +129,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="text"
-                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="border  bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e] rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                   placeholder="Mobile No."
                 />
               )}
@@ -131,7 +141,7 @@ const TravelerDetail = () => {
                 <input
                   {...field}
                   type="email"
-                  className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                  className="border  bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e] rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                   placeholder="Email"
                 />
               )}

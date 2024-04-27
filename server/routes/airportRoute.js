@@ -12,7 +12,7 @@ router.get("/airports/:id", airportController.getAirportById);
 // Route to create a new airport (requires authentication)
 router.post(
   "/airports",
-  auth,
+
   airportController.createAirport
 );
 

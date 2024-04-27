@@ -1,91 +1,32 @@
 const Booking = require("../model/Booking");
-
-// Controller to get all bookings
-const getAllBookings = async (req, res) => {
+exports.getBookingById = async (req, res) => {
   try {
-    const bookings = await Booking.find();
-    res.json(bookings);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
-// Controller to get a single booking by ID
-const getBookingById = async (req, res) => {
-  try {
-    const booking = await Booking.findById(req.params.id);
+    const booking = await Booking.find();
     if (!booking) {
       return res.status(404).json({ message: "Booking not found" });
     }
-    res.json(booking);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(200).json(booking);
+  } catch (error) {
+    console.error("Error retrieving booking:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
-// Controller to create a new booking
-const createBooking = async (req, res) => {
-  const { flight, passengers, booking_datetime, status, booking_type } =
-    req.body;
-
+exports.createBooking = async (req, res) => {
   try {
-    const booking = new Booking({
-      flight,
-      passengers,
-      booking_datetime,
-      status,
-      booking_type,
-    });
+    // Extract booking data from request body
+    const bookingData = req.body;
 
-    const newBooking = await booking.save();
+    // Create a new booking instance
+    const newBooking = new Booking(bookingData);
+
+    // Save the new booking to the database
+    await newBooking.save();
+
+    // Respond with the newly created booking
     res.status(201).json(newBooking);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  } catch (error) {
+    console.error("Error creating booking:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
-};
-
-// Controller to update an existing booking
-const updateBooking = async (req, res) => {
-  const { flight, passengers, booking_datetime, status, booking_type } =
-    req.body;
-
-  try {
-    const booking = await Booking.findById(req.params.id);
-    if (!booking) {
-      return res.status(404).json({ message: "Booking not found" });
-    }
-
-    booking.flight = flight;
-    booking.passengers = passengers;
-    booking.booking_datetime = booking_datetime;
-    booking.status = status;
-    booking.booking_type = booking_type;
-
-    const updatedBooking = await booking.save();
-    res.json(updatedBooking);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
-
-// Controller to delete a booking
-const deleteBooking = async (req, res) => {
-  try {
-    const booking = await Booking.findById(req.params.id);
-    if (!booking) {
-      return res.status(404).json({ message: "Booking not found" });
-    }
-    await booking.remove();
-    res.json({ message: "Booking deleted" });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
-module.exports = {
-  getAllBookings,
-  getBookingById,
-  createBooking,
-  updateBooking,
-  deleteBooking,
 };

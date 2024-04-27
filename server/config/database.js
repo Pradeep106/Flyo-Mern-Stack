@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connectToDB = async () => {
   const URL =
-    "mongodb+srv://pradp137:pradeep123@cluster0.3js7hpc.mongodb.net/flyo?retryWrites=true&w=majority"; // Replace with your MongoDB connection string
+    "mongodb+srv://pradp137:pradeepyadav@cluster0.3js7hpc.mongodb.net/flyo?retryWrites=true&w=majority"; // Replace with your MongoDB connection string
 
   try {
     await mongoose.connect(URL, {

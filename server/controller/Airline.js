@@ -25,10 +25,10 @@ const getAirlineById = async (req, res) => {
 
 // Controller to create a new airline
 const createAirline = async (req, res) => {
-  const { name, code, country } = req.body;
+  const { name, model, code, country } = req.body;
 
   // Check if any required field is empty
-  if (!name || !code || !country) {
+  if (!name || !code || !country || !model) {
     return res
       .status(400)
       .json({ message: "Name, code, and country are required fields" });
@@ -36,6 +36,7 @@ const createAirline = async (req, res) => {
 
   const airline = new Airline({
     name,
+    model,
     code,
     country,
   });

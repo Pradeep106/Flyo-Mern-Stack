@@ -11,7 +11,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex w-[35%] flex-wrap text-sm tracking-wide justify-center rounded-sm mt-10 h-fit  bg-white">
+    <div className="flex w-[35%] flex-wrap text-sm tracking-wide justify-center rounded-sm mt-10 h-fit  bg-[#000B2E]">
       {/* Price Range Slider */}
       <div className="w-full md:w-1/3 p-5">
         <label
@@ -42,9 +42,9 @@ const Sidebar = () => {
         <div className="">
           <label className="inline-flex items-center">
             <input type="checkbox" className="form-checkbox text-blue-500" />
-            <span className="ml-2">Non Stop</span>
+            <span className="ml-2 text-gray-700">Non Stop</span>
           </label>
-          <label className="inline-flex items-center ml-4">
+          <label className="inline-flex items-center ml-4 text-gray-700">
             <input type="checkbox" className="form-checkbox text-blue-500" />
             <span className="ml-2">Stop</span>
           </label>
@@ -55,7 +55,7 @@ const Sidebar = () => {
       <div className="w-full md:w-1/3 px-4 mb-4">
         <label className="block text-gray-700 font-bold mb-2">Airlines</label>
         <div>
-          <div className="flex flex-col">
+          <div className="flex text-gray-700 flex-col">
             <label className="inline-flex items-center">
               <input type="checkbox" className="form-checkbox text-blue-500" />
               <span className="ml-2">Airline 1</span>

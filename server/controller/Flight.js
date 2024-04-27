@@ -31,6 +31,7 @@ const createFlight = async (req, res) => {
     toAirport,
     departureDateTime,
     arrivalDateTime,
+    takeoffDateTime,
     price,
   } = req.body;
 
@@ -41,6 +42,7 @@ const createFlight = async (req, res) => {
       toAirport,
       departureDateTime,
       arrivalDateTime,
+      takeoffDateTime,
       price,
     });
 

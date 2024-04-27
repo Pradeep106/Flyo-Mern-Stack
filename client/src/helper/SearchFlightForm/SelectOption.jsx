@@ -19,7 +19,7 @@ const BookingTypeSelect = ({
         name={name}
         onBlur={onBlur}
         {...register(name)}
-        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm appearance-none">
+        className="mt-1 block text-gray-500 w-full bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e]   border p-2 rounded-md  focus:border-blue-500 focus:ring focus:ring-blue-200">
         {options.map((option, index) => (
           <option key={index} value={option} className="bg-white text-gray-800">
             {option}

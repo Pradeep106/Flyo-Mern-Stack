@@ -6,6 +6,10 @@ const airlineSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    model: {
+      type: String,
+      required: true,
+    },
     code: {
       type: String,
       required: true,

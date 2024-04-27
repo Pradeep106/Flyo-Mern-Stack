@@ -11,13 +11,13 @@ const DateTimeInput = ({
   const isEmpty = !touchedFields[name] && !errors[name];
 
   return (
-    <div className="mb-4  w-full">
-      <label className="block font-bold ">{label}</label>
+    <div className="mb-4 cursor-pointer w-full">
+      <label className="block text-gray-700">{label}</label>
       <input
         type="date"
         {...register(name)}
         onBlur={onBlur}
-        className=" border border-gray-300  p-2 w-full"
+        className="mt-1 block text-gray-500 w-full bg-[#06133d] cursor-pointer  shadow-sm shadow-[#07174e] border-[#07174e]   border p-2 rounded-md  focus:border-blue-500 focus:ring focus:ring-blue-200"
       />
       {isEmpty ? null : <p className="text-red-500">{errors[name]?.message}</p>}
     </div>

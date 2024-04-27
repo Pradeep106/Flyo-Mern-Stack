@@ -10,7 +10,7 @@ router.get("/airlines", airlineController.getAllAirlines);
 router.get("/airlines/:id", airlineController.getAirlineById);
 
 // Route to create a new airline (requires authentication)
-router.post("/airlines", auth, airlineController.createAirline);
+router.post("/airlines", airlineController.createAirline);
 
 // Route to update an existing airline (requires authentication)
 router.put("/airlines/:id", auth, airlineController.updateAirline);

@@ -1,39 +1,49 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
+// Define the schema
 const bookingSchema = new mongoose.Schema({
-  flight: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Flight',
-    required: true
+  id: Number,
+  airlineName: String,
+  airlineModel: String,
+  airlineCode: String,
+  fromAirport: {
+    code: String,
+    name: String,
+    city: String,
   },
-  passengers: [{
-    type: {
-      type: String,
-      enum: ['Kid', 'Adult', 'Infant'],
-      required: true
-    },
-    passenger: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Passenger',
-      required: true
-    }
-  }],
-  booking_datetime: {
-    type: Date,
-    required: true
+  toAirport: {
+    code: String,
+    name: String,
+    city: String,
   },
-  status: {
-    type: String,
-    enum: ['Confirmed', 'Pending', 'Cancelled'],
-    default: 'Pending'
+  departureTime: Date,
+  arrivalTime: Date,
+  flightTakeoffDate: Date,
+  prices: {
+    adult: Number,
+    children: Number,
+    infant: Number,
   },
-  booking_type: {
-    type: String,
-    enum: ['One-way', 'Round-trip'],
-    default: 'One-way'
-  }
-}, { timestamps: true });
+  stops: Number,
+  duration: String,
+  userData: {
+    passengers: [
+      {
+        category: String,
+        count: Number,
+      },
+    ],
+    booking_date: Date,
+    roundtrip_date: Date,
+    booking_type: String,
+    fromAirport: String,
+    toAirport: String,
+    booking_class: String,
+  },
+  totalPrice: Number,
+});
 
-const Booking = mongoose.model('Booking', bookingSchema);
+// Create a model
+const Booking = mongoose.model("Booking", bookingSchema);
 
 module.exports = Booking;

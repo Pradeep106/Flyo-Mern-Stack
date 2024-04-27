@@ -9,6 +9,10 @@ import DateTimeInput from "../helper/SearchFlightForm/DateTimeInput";
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import BookingTypeSelect from "../helper/SearchFlightForm/SelectOption";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateFlightData } from "../features/FlightSearchData/FlightSearchDataSlice";
+import { flightData } from "../constant/FlightData";
+import { demoData } from "../constant/DemoData";
 
 const bookingClassOptions = [
   "Regular fair",
@@ -21,13 +25,16 @@ const bookingTypeOption = ["One-way", "Round"];
 
 const SearchFlightForm = () => {
   const [open, setOpen] = useState(true);
-  console.log("open", open);
 
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const tomorrowISOString = tomorrow.toISOString().split("T")[0];
 
   const navigate = useNavigate();
+
+  /* redux */
+
+  const dispatch = useDispatch();
 
   /*.......................... React form hook logic............*/
   const {
@@ -55,7 +62,6 @@ const SearchFlightForm = () => {
   });
   const watchPassengers = watch("passengers");
   const watchBookingType = watch("booking_type");
-  console.log("watchBooking type", watchBookingType);
 
   const roundTrip = watchBookingType === "Round" ? "roundtrip" : "oneway";
 
@@ -81,14 +87,16 @@ const SearchFlightForm = () => {
   /*.......................... React form hook logic............*/
 
   const onSubmit = (data) => {
-    console.log(data);
-    navigate("/flight-search");
+    dispatch(updateFlightData(data));
+
+    // console.log("user data", data);
+    navigate("/flight-search", { state: { userData: data } });
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="border mt-10 z-0 bg-white mini:p-5  p-10 mini:rounded-lg rounded-xl">
+      className=" mt-10 z-0 bg-[#000B2E] mini:p-5  p-10 mini:rounded-lg rounded-xl">
       <div className="flex  mini:flex-col gap-20 mini:gap-5  z-10 relative">
         <BookingTypeSelect
           label="Booking type"
@@ -109,7 +117,7 @@ const SearchFlightForm = () => {
             </p>
             <MdExpandMore className=" block text-lg font-medium text-gray-700" />
           </div>
-          <div className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm sm:text-sm">
+          <div className="mt-1 block text-gray-500 w-full bg-[#06133d] shadow-sm shadow-[#07174e] border-[#07174e]   border p-2 rounded-md  focus:border-blue-500 focus:ring focus:ring-blue-200">
             <p className="font-bold">{sum} Travellers</p>
           </div>
         </div>
@@ -128,6 +136,7 @@ const SearchFlightForm = () => {
 
       <div className="flex mt-4 sm:flex-wrap mini:flex-wrap items-center gap-5">
         <AirportInput
+        label="From"
           name="fromAirport"
           register={register}
           onBlur={() => {
@@ -136,8 +145,10 @@ const SearchFlightForm = () => {
           errors={errors}
           touchedFields={touchedFields}
           setValue={setValue}
+          demoData={demoData}
         />
         <AirportInput
+         label="To"
           name="toAirport"
           register={register}
           onBlur={() => {
@@ -146,9 +157,11 @@ const SearchFlightForm = () => {
           errors={errors}
           touchedFields={touchedFields}
           setValue={setValue}
+          demoData={demoData}
         />
-        <div className="flex ">
+        <div className="flex gap-3 ">
           <DateTimeInput
+          label="Departure"
             name="booking_date"
             register={register}
             onBlur={() => {
@@ -160,6 +173,7 @@ const SearchFlightForm = () => {
             roundTrip={roundTrip}
           />
           <DateTimeInput
+          label="Return"
             name="roundtrip_date"
             register={register}
             onBlur={() => {
